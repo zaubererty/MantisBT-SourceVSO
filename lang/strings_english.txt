@@ -1,0 +1,9 @@
+<?php
+
+# Copyright (c) 2012 John Reese
+# Licensed under the MIT license
+
+$s_plugin_SourceGithub_ = '';
+$s_plugin_SourceGithub_vso = 'Visual Studio Online';
+$s_plugin_SourceGithub_title = 'Visual Studio Online Integration';
+$s_plugin_SourceGithub_description = 'Adds Visual Studio Online integration to the Source Integration framework.';
