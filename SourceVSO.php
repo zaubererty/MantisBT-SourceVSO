@@ -231,15 +231,15 @@ class SourceGithubPlugin extends MantisSourcePlugin {
 	 * Initialize contact with the integration framework.
 	 * @return object The plugin object
 	 */
-	final public function integration( $p_event ) {
+	/*final public function integration( $p_event ) {
 		return $this;
-	}
+	}*/
 
 	/**
 	 * Pass the precommit event to the interface without the
 	 * event paramater.
 	 */
-	final public function _precommit( $p_event ) {
+	/*final public function _precommit( $p_event ) {
 		return $this->precommit();
-	}
+	}*/
 }
