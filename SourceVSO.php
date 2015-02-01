@@ -127,7 +127,7 @@ class SourceVSOPlugin extends MantisSourcePlugin {
 	public function update_repo_form( $p_repo ) {
 		$t_vso_basic_login = null;
 		$t_vso_basic_pwd   = null;
-		$t_vso_subdomain    = null;
+		$t_vso_subdomain   = null;
 		$t_vso_reponame    = null;
 
 		if( isset($p_repo->info['vso_basic_login']) ) {
@@ -186,7 +186,25 @@ class SourceVSOPlugin extends MantisSourcePlugin {
 	 * Process form elements for custom repository data.
 	 * @param object Repository
 	 */
-	public function update_repo( $p_repo ) {}
+	public function update_repo( $p_repo ) {
+		$f_vso_basic_login = gpc_get_string( 'vso_basic_login' );
+		$f_vso_basic_pwd = gpc_get_string( 'vso_basic_pwd' );
+		$f_vso_subdomain = gpc_get_string( 'vso_subdomain' );
+		$f_vso_reponame = gpc_get_string( 'vso_reponame' );
+		$f_master_branch = gpc_get_string( 'master_branch' );
+
+		if ( !preg_match( '/^(\*|[a-zA-Z0-9_\., -]*)$/', $f_master_branch ) ) {
+			plugin_error( self::ERROR_INVALID_PRIMARY_BRANCH );
+		}
+
+		$p_repo->info['vso_basic_login'] = $f_vso_basic_login;
+		$p_repo->info['vso_basic_pwd'] = $f_vso_basic_pwd;
+		$p_repo->info['vso_subdomain'] = $f_vso_subdomain;
+		$p_repo->info['vso_reponame'] = $f_vso_reponame;
+		$p_repo->info['master_branch'] = $f_master_branch;
+
+		return $p_repo;
+	}
 
 	/**
 	 * Output form elements for configuration options.
