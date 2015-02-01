@@ -9,7 +9,7 @@ if ( false === include_once( config_get( 'plugin_path' ) . 'Source/MantisSourceP
 
 require_once( config_get( 'core_path' ) . 'json_api.php' );
 
-class SourceGithubPlugin extends MantisSourcePlugin {
+class SourceVSOPlugin extends MantisSourcePlugin {
 
 	const ERROR_INVALID_PRIMARY_BRANCH = 'invalid_branch';
 
