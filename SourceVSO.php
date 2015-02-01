@@ -63,7 +63,9 @@ class SourceGithubPlugin extends MantisSourcePlugin {
 	 * @param object Changeset
 	 * @return string Changeset string
 	 */
-	abstract public function show_changeset( $p_repo, $p_changeset);
+	function show_changeset( $p_repo, $p_changeset ) {
+		return $p_repo->type . ' ' . $p_changeset->revision;
+	}
 
 	/**
 	 * Get a string representing a file for a given repository and changeset.
@@ -72,7 +74,9 @@ class SourceGithubPlugin extends MantisSourcePlugin {
 	 * @param object File
 	 * @return string File string
 	 */
-	abstract public function show_file( $p_repo, $p_changeset, $p_file );
+	function show_file( $p_repo, $p_changeset, $p_file ) {
+		return $p_file->filename . ' (' . $p_file->revision . ')';
+	}
 
 	/**
 	 * Get a URL to a view of the repository at the given changeset.
@@ -80,7 +84,9 @@ class SourceGithubPlugin extends MantisSourcePlugin {
 	 * @param object Changeset
 	 * @return string URL
 	 */
-	abstract public function url_repo( $p_repo, $t_changeset=null );
+	function url_repo( $p_repo, $t_changeset=null ) {
+		return $p_repo->url;
+	}
 
 	/**
 	 * Get a URL to a diff view of the given changeset.
@@ -88,7 +94,9 @@ class SourceGithubPlugin extends MantisSourcePlugin {
 	 * @param object Changeset
 	 * @return string URL
 	 */
-	abstract public function url_changeset( $p_repo, $p_changeset );
+	function url_changeset( $p_repo, $p_changeset ) {
+		return $p_repo->url;
+	}
 
 	/**
 	 * Get a URL to a view of the given file at the given changeset.
@@ -97,7 +105,9 @@ class SourceGithubPlugin extends MantisSourcePlugin {
 	 * @param object File
 	 * @return string URL
 	 */
-	abstract public function url_file( $p_repo, $p_changeset, $p_file );
+	function url_file( $p_repo, $p_changeset, $p_file ) {
+		return $p_repo->url;
+	}
 
 	/**
 	 * Get a URL to a diff view of the given file at the given changeset.
@@ -106,7 +116,9 @@ class SourceGithubPlugin extends MantisSourcePlugin {
 	 * @param object File
 	 * @return string URL
 	 */
-	abstract public function url_diff( $p_repo, $p_changeset, $p_file );
+	function url_diff( $p_repo, $p_changeset, $p_file ) {
+		return $p_repo->url;
+	}
 
 	/**
 	 * Output form elements for custom repository data.
