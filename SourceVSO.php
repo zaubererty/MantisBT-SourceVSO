@@ -85,7 +85,16 @@ class SourceVSOPlugin extends MantisSourcePlugin {
 	 * @return string URL
 	 */
 	function url_repo( $p_repo, $t_changeset=null ) {
-		return $p_repo->url;
+		if( empty( $p_repo->info ) ) {
+			return '';
+		}
+		if( isset($p_repo->info['vso_subdomain']) ) {
+			$t_vso_subdomain = $p_repo->info['vso_subdomain'];
+		}
+		if( isset($p_repo->info['vso_reponame']) ) {
+			$t_vso_reponame = $p_repo->info['vso_reponame'];
+		}
+		return "https://$t_vso_subdomain.visualstudio.com/DefaultCollection/_apis/git/$t_vso_reponame/repositories?api-version=1.0"
 	}
 
 	/**
