@@ -7,3 +7,4 @@ $s_plugin_SourceVSO_ = '';
 $s_plugin_SourceVSO_vso = 'Visual Studio Online';
 $s_plugin_SourceVSO_title = 'Visual Studio Online Integration';
 $s_plugin_SourceVSO_description = 'Adds Visual Studio Online integration to the Source Integration framework.';
+$s_plugin_SourceGithub_error_invalid_branch = 'Invalid character in Primary Branch';
